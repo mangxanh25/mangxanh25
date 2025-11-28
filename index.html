@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mạng xanh - Niềm tin thật | Deepfake và an toàn mạng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#1E3A8A', 
+                        'accent-green': '#10B981', 
+                        'background-light': '#F9FAFB', 
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        #mobile-menu {
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .menu-open { max-height: 500px !important; }
+        .content-page { min-height: 70vh; padding-top: 5rem; padding-bottom: 5rem; }
+        .active-menu-item {
+            color: #10B981 !important; 
+            border-bottom: 2px solid #10B981;
+        }
+    </style>
+</head>
+<body class="font-sans bg-background-light text-gray-800">
+    <header class="sticky top-0 z-50 bg-primary-dark shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="javascript:void(0)" data-target="page-home" class="nav-link text-2xl font-extrabold text-white tracking-tight">
+                     Mạng xanh <span class="text-accent-green">-</span> Niềm tin thật
+                </a>
+                <nav class="hidden md:flex space-x-6 lg:space-x-8">
+                    <a href="javascript:void(0)" data-target="page-gioithieu" class="nav-link text-white hover:text-accent-green transition duration-200 text-sm font-medium p-1">Giới thiệu Deepfake</a>
+                    <a href="javascript:void(0)" data-target="page-loivarisiko" class="nav-link text-white hover:text-accent-green transition duration-200 text-sm font-medium p-1">Lợi ích & Rủi ro</a>
+                    <a href="javascript:void(0)" data-target="page-safe" class="nav-link text-white hover:text-accent-green transition duration-200 text-sm font-medium p-1">Mô hình SAFE</a>
+                    <a href="javascript:void(0)" data-target="page-baocao" class="nav-link text-white hover:text-accent-green transition duration-200 text-sm font-medium p-1">Báo cáo Deepfake & Công cụ</a>
+                    <a href="javascript:void(0)" data-target="page-tacgia" class="nav-link text-white hover:text-accent-green transition duration-200 text-sm font-medium p-1">Về nhóm tác giả</a>
+                </nav>
+                <button id="menu-button" class="md:hidden text-white p-2 rounded-lg hover:bg-blue-800 transition duration-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <nav id="mobile-menu" class="md:hidden bg-primary-dark/95 backdrop-blur-sm shadow-inner">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="javascript:void(0)" data-target="page-gioithieu" class="mobile-nav-link nav-link block text-white hover:text-accent-green px-3 py-2 rounded-md text-base font-medium transition duration-200">Giới thiệu Deepfake</a>
+                <a href="javascript:void(0)" data-target="page-loivarisiko" class="mobile-nav-link nav-link block text-white hover:text-accent-green px-3 py-2 rounded-md text-base font-medium transition duration-200">Lợi ích & Rủi ro</a>
+                <a href="javascript:void(0)" data-target="page-safe" class="mobile-nav-link nav-link block text-white hover:text-accent-green px-3 py-2 rounded-md text-base font-medium transition duration-200">Mô hình SAFE</a>
+                <a href="javascript:void(0)" data-target="page-baocao" class="mobile-nav-link nav-link block text-white hover:text-accent-green px-3 py-2 rounded-md text-base font-medium transition duration-200">Báo cáo Rủi ro & Công cụ</a>
+                <a href="javascript:void(0)" data-target="page-tacgia" class="mobile-nav-link nav-link block bg-accent-green text-primary-dark text-center font-bold py-2 rounded-lg mt-2 hover:bg-emerald-400 transition duration-300">Về Nhóm Tác giả</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="content-page p-0 min-h-[80vh] hidden" id="page-home">
+            <div class="bg-primary-dark text-white pt-20 pb-28">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight">
+                        Chào mừng đến với <span class="text-accent-green">Mạng Xanh</span>
+                    </h1>
+                    <h3 class="text-center text-xl md:text-2xl font-light mb-8 opacity-90 max-w-4xl mx-auto">
+                     Với sự phát triển của Deepfake, nội dung giả mạo bằng AI ngày càng tinh vi, ảnh hưởng đến cá nhân và làm lung lay niềm tin cộng đồng. Mạng xanh ra đời nhằm giúp người dùng nhận diện deepfake, bảo vệ bản thân trước thông tin bị làm giả và lan tỏa cách sử dụng AI an toàn, có trách nhiệm. Chúng tôi ủng hộ công nghệ khi được dùng đúng, vì một môi trường mạng minh bạch và đáng tin cậy hơn. Giữ mạng xanh, giữ niềm tin thật.
+                </div>
+            </div>
+            <div class="bg-white py-16 shadow-inner border-b border-gray-200">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-primary-dark mb-6">
+                        Sứ Mệnh của chúng tôi
+                    </h2>
+                    <p class="text-2xl font-medium text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                        <span class="text-accent-green font-extrabold">Mạng xanh - Niềm tin thật</span> không chỉ dừng lại ở việc phát hiện Deepfake mà còn nhằm mục tiêu trang bị một tư duy nhận biết và kỹ thuật số toàn diện cho các bạn học sinh THPT. Chúng tôi cam kết:
+                        <div class="max-w-4xl mx-auto space-y-6">
+    <p class="text-lg text-gray-700 leading-relaxed text-justify">
+        <span class="font-bold text-primary-dark">1. Nâng cao nhận thức cộng đồng:</span> Cung cấp tri thức dễ hiểu về cơ chế hoạt động, lợi ích và đặc biệt là rủi ro của Deepfake, giúp mọi người từ học sinh, sinh viên đến người dùng phổ thông luôn cảnh giác trước nội dung số giả mạo.
+    </p>
+    <p class="text-lg text-gray-700 leading-relaxed text-justify">
+        <span class="font-bold text-primary-dark">2. Xây dựng khả năng phòng vệ:</span> Thiết lập và phổ biến các chiến lược phòng vệ vững chắc (như mô hình SAFE và hướng dẫn sử dụng công cụ DeepDetect), biến mỗi người dùng thành một tuyến phòng thủ kỹ thuật số chủ động và hiệu quả.
+    </p>
+    <p class="text-lg text-gray-700 leading-relaxed text-justify">
+        <span class="font-bold text-primary-dark">3. Tái thiết niềm tin số:</span> Chung tay kiến tạo một không gian mạng an toàn và đáng tin cậy hơn, nơi người dùng có thể tương tác, học hỏi và làm việc mà không phải lo sợ bị lừa đảo hay bị xâm phạm danh dự bởi các công nghệ giả mạo siêu thực.
+    </p>
+</div>
+                         <a href="javascript:void(0)" data-target="page-gioithieu"
+   class="nav-link inline-block bg-emerald-400 text-white font-bold text-lg py-3 px-8 rounded-xl shadow-xl
+   hover:bg-emerald-500 active:bg-emerald-600 transition duration-300 transform hover:scale-105">
+   Khám phá Deepfake là gì
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="max-w-7xl mx-auto">
+            <section class="content-page bg-background-light" id="page-gioithieu">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-10 text-primary-dark">
+                        1. Giới thiệu về Deepfake
+                    </h2>
+                    <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl space-y-8 border border-gray-200">
+                        <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                            Deepfake là một thuật ngữ kết hợp giữa "deep learning" (học sâu) và "fake" (giả mạo). Đây là công nghệ sử dụng trí tuệ nhân tạo (AI) để tạo ra các nội dung giả mạo (video, âm thanh, hình ảnh) siêu chân thật khiến người xem khó có thể phân biệt được thật giả. Công nghệ này đại diện cho sự tiến bộ vượt bậc nhưng cũng là thách thức lớn nhất đối với niềm tin số hiện nay.
+                        </p>
+                        <h3 class="text-2xl font-bold text-accent-green border-b pb-2 mt-6">1.1. Cơ chế hoạt động: Mạng đối kháng tạo sinh (GANs)</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                            Các Deepfake thường được tạo ra bằng các mô hình học sâu như Generative Adversarial Networks (GANs). Hệ thống này hoạt động dựa trên nguyên lý đối kháng giữa hai mạng nơ-ron:
+                        </p>
+                        <ul class="list-disc pl-8 space-y-2 text-gray-700 text-lg">
+                            <li class="text-justify">Mạng tạo lập (Generator): Có nhiệm vụ tạo ra dữ liệu giả mạo (ví dụ: khuôn mặt, giọng nói) từ dữ liệu đầu vào AI cố gắng tạo ra nội dung càng giống thật càng tốt.</li>
+                            <li class="text-justify">Mạng phân biệt (Discriminator): Có nhiệm vụ phân biệt đâu là dữ liệu thật (từ tập dữ liệu gốc) và đâu là dữ liệu giả mạo (từ Generator).</li>
+                        </ul>
+                        <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                            Quá trình đối kháng diễn ra lặp đi lặp lại hàng triệu lần. Generator học cách đánh lừa Discriminator trong khi Discriminator học cách phát hiện sự giả mạo, điều này dẫn đến sự ra đời của các Deepfake với độ chân thật gần như tuyệt đối. 
+                        </p>
+                        <h3 class="text-2xl font-bold text-accent-green border-b pb-2 mt-6">1.2. Phân loại và ứng dụng Deepfake</h3>
+                        <ul class="list-disc pl-8 space-y-3 text-gray-700 text-lg">
+                            <li class="text-justify">Hoán đổi khuôn mặt (Face-Swapping): Thay thế khuôn mặt của một người trong video bằng khuôn mặt của người khác, thường được sử dụng để tạo ra video hài hước hoặc tệ hơn là để bôi nhọ cá nhân.</li>
+                            <li class="text-justify">Đồng bộ môi (Lip-Syncing/Voice Synthesis): Thay đổi chuyển động miệng để khớp với một đoạn âm thanh mới hoặc tạo ra toàn bộ bài phát biểu mới chỉ từ giọng nói của một người (nguy hiểm trong các tình huống lừa đảo tài chính).</li>
+                            <li class="text-justify">Tái tạo cơ thể (Body Reenactment): Sử dụng chuyển động cơ thể của một người để điều khiển chuyển động của người khác trong video, ứng dụng trong việc tạo ra các avatar ảo hoặc người dẫn chương trình AI.</li>
+                            <li class="text-justify">Hình ảnh tĩnh (Image Manipulation): Tạo ra các bức ảnh giả mạo một sự kiện hoặc nhân vật chưa từng xảy ra, thường dùng để lan truyền tin giả.</li>
+                        </ul>
+                        <h3 class="text-2xl font-bold text-accent-green border-b pb-2 mt-6">1.3. Thách thức trong việc phát hiện Deepfake</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                            Việc phát hiện Deepfake đang trở nên khó khăn hơn bao giờ hết. Các phương pháp phát hiện dựa trên lỗi cơ bản (như nháy mắt không đều, ánh sáng không nhất quán) đang dần lỗi thời, vì các thuật toán Deepfake mới đã học cách khắc phục những điểm yếu đó. Cuộc đua vũ trang công nghệ này đòi hỏi cả con người và AI phải liên tục nâng cao khả năng cảnh giác và phân tích.
+                        </p>
+                        <h4 class="text-xl font-semibold text-primary-dark mt-6">1. Sự tinh vi của Deepfake</h4>
+                        <ul class="list-disc pl-8 space-y-2 text-gray-700 text-lg">
+                            <li class="text-justify">Sự thật cao: Deepfake được tạo ra bằng các công nghệ AI tiên tiến đặc biệt là Mạng đối nghịch tạo sinh (GANs) khiến chúng ngày càng giống thật và khó phân biệt bằng mắt thường hoặc các thuật toán cơ bản.</li>
+                            <li class="text-justify">Cải tiến liên tục: Các mô hình AI tạo sinh liên tục được tinh chỉnh và cải thiện (ví dụ: điều chỉnh biểu cảm, ánh sáng, góc nhìn) giúp Deepfake trông tự nhiên hơn bao gồm cả những chi tiết nhỏ như nháy mắt hoặc cử động môi.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold text-primary-dark mt-6">2. “Cuộc đua” giữa kẻ tạo và người phát hiện</h4>
+                        <ul class="list-disc pl-8 space-y-2 text-gray-700 text-lg">
+                            <li class="text-justify">Tiến độ nhanh chóng: Khi các nhà nghiên cứu phát triển một phương pháp để phát hiện Deepfake thì những kẻ tạo Deepfake lại nhanh chóng học hỏi và tìm cách khắc phục, tạo ra một phiên bản tinh vi hơn. Đây là một "cuộc đua vũ trang" không hồi kết.</li>
+                            <li class="text-justify">Sự đa dạng của phương pháp tạo: Có nhiều phương pháp tạo Deepfake khác nhau (Face Swap, Face2Face, Voice Deepfake, v.v.) đòi hỏi các công cụ phát hiện cũng phải đa dạng và linh hoạt để đối phó với từng loại.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold text-primary-dark mt-6">3. Vấn đề về dữ liệu và mô hình phát hiện</h4>
+                        <ul class="list-disc pl-8 space-y-2 text-gray-700 text-lg">
+                            <li class="text-justify">Thiếu dữ liệu huấn luyện: Để huấn luyện một mô hình phát hiện Deepfake hiệu quả cần một lượng lớn dữ liệu Deepfake đã được dán nhãn (Deepfake Datasets). Việc thu thập và cập nhật những bộ dữ liệu này rất tốn kém và không theo kịp tốc độ phát triển của các công cụ tạo Deepfake mới.</li>
+                            <li class="text-justify">Tính tổng quát kém (Generalization): Một mô hình phát hiện Deepfake được huấn luyện để nhận diện Deepfake được tạo ra bằng một phương pháp cụ thể có thể hoạt động kém hoặc thất bại hoàn toàn khi gặp Deepfake được tạo bằng một phương pháp mới hoặc khác.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold text-primary-dark mt-6">4. Thách thức về công nghệ và pháp lý</h4>
+                        <ul class="list-disc pl-8 space-y-2 text-gray-700 text-lg">
+                            <li class="text-justify">Yêu cầu tài nguyên cao: Các công cụ phát hiện Deepfake tinh vi đặc biệt là các mô hình học sâu (Deep Learning) thường yêu cầu tài nguyên tính toán lớn và tốc độ xử lý nhanh, gây khó khăn cho việc triển khai rộng rãi.</li>
+                            <li class="text-justify">Khung pháp lý chưa hoàn thiện: Việc tạo ra và phát tán Deepfake đặc biệt là Deepfake gây hại (lừa đảo, thông tin sai lệch, xâm phạm danh dự) đang gia tăng. Trong khi đó, ác tổ chức và chính phủ vẫn đang trong quá trình xây dựng các chính sách và khung pháp lý để kiểm soát và xử lý vấn đề này một cách hiệu quả.</li>
+                        </ul>
+                        <blockquote class="border-l-4 border-accent-green pl-6 italic text-gray-700 mt-8 text-justify">
+                            "Mục tiêu của Deepfake không chỉ là lừa dối, mà là làm xói mòn niềm tin cốt lõi của con người vào những gì họ nhìn thấy và nghe thấy. Điều này tạo ra một cuộc khủng hoảng niềm tin trên diện rộng."
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+            <section class="content-page bg-white hidden" id="page-loivarisiko">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-10 text-primary-dark">
+                        2. Lợi ích và rủi của ro Deepfake trong đời sống
+                    </h2>
+                    <div class="bg-background-light p-8 md:p-12 rounded-2xl shadow-2xl">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                            <div class="md:col-span-1">
+                                <h3 class="text-3xl font-bold text-accent-green mb-6 border-b border-accent-green pb-2">✅ Lợi ích thiết thực</h3>
+                                <div class="space-y-6 text-gray-700">
+                                    <div>
+                                        <h4 class="text-xl font-semibold">Giải trí & Sáng tạo nghệ thuật</h4>
+                                        <p class="text-justify">Giúp các nhà làm phim tái tạo diễn viên quá cố, trẻ hóa nhân vật hoặc tạo ra các hiệu ứng hình ảnh phức tạp với chi phí thấp hơn, mở ra tiềm năng vô hạn trong ngành điện ảnh và trò chơi.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-semibold">Ứng dụng trong y tế và giáo dục</h4>
+                                        <p class="text-justify">Trong y tế, Deepfake được dùng để mô phỏng các ca phẫu thuật hiếm gặp cho sinh viên. Trong giáo dục, tạo ra các trải nghiệm nhập vai, giúp người học tương tác với các mô hình lịch sử AI.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-semibold">Hỗ trợ người khuyết tật</h4>
+                                        <p class="text-justify">Tạo ra giọng nói tự nhiên hơn cho người bị mất khả năng phát âm, hoặc giúp người khiếm thính "nhìn thấy" ngôn ngữ ký hiệu được chuyển đổi thành lời nói một cách tự nhiên.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:col-span-1">
+                                <h3 class="text-3xl font-bold text-primary-dark mb-6 border-b border-primary-dark pb-2">❌ Rủi ro Chính trị & Kinh tế</h3>
+                                <div class="space-y-6 text-gray-700">
+                                    <div>
+                                        <h4 class="text-xl font-semibold text-red-600">Thao túng chính trị (Information Warfare)</h4>
+                                        <p class="text-justify">Tạo ra các video giả mạo chính trị gia đưa ra tuyên bố gây sốc hoặc hành vi sai trái nhằm phá hoại bầu cử, gây bất ổn xã hội và làm mất uy tín của chính quyền.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-semibold text-red-600">Lừa đảo tài chính (CEO Fraud)</h4>
+                                        <p class="text-justify">Sử dụng Deepfake giọng nói để giả mạo CEO hoặc giám đốc tài chính, lừa nhân viên cấp dưới chuyển một lượng lớn tiền vào tài khoản lừa đảo. Đây là mối đe dọa trực tiếp đến an ninh doanh nghiệp.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-semibold text-red-600">Thị trường chứng khoán</h4>
+                                        <p class="text-justify">Một Deepfake video hoặc âm thanh giả mạo một công ty lớn có thể gây ra sự hoảng loạn và bán tháo trên thị trường chứng khoán, gây thiệt hại kinh tế hàng tỷ đô la trong vài phút.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:col-span-1">
+                                <h3 class="text-3xl font-bold text-primary-dark mb-6 border-b border-primary-dark pb-2">❌ Rủi ro Xã hội & Cá nhân</h3>
+                                <div class="space-y-6 text-gray-700">
+                                    <div>
+                                        <h4 class="text-xl font-semibold text-red-600">Xói mòn niềm tin</h4>
+                                        <p class="text-justify">Khi công chúng không còn tin vào bất cứ nội dung nghe nhìn nào, sự hoài nghi lan rộng sẽ làm tê liệt khả năng đối thoại và tìm kiếm sự thật chung của xã hội.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-semibold text-red-600">Tấn công danh dự cá nhân (Reputational Harm)</h4>
+                                        <p class="text-justify">Tạo ra các video Deepfake nhạy cảm hoặc bôi nhọ để trả thù, tống tiền hoặc làm hủy hoại sự nghiệp và danh dự của một người, gây tổn thương tâm lý nghiêm trọng.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-semibold text-red-600">Giả mạo nhận dạng (Identity Theft)</h4>
+                                        <p class="text-justify">Sử dụng Deepfake khuôn mặt và giọng nói để vượt qua các hệ thống xác thực sinh trắc học, từ đó truy cập trái phép vào tài khoản ngân hàng hoặc dữ liệu cá nhân.</p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </section>
+            <section class="content-page bg-background-light hidden" id="page-safe">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-10 text-primary-dark">
+                        3. Mô hình SAFE
+                    </h2>
+                    <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl">
+                        <p class="text-xl font-medium text-gray-700 mb-8 text-justify leading-relaxed">
+                            Trong kỷ nguyên Trí tuệ Nhân tạo (AI), Deepfake trở thành một mối đe dọa tinh vi, làm lung lay niềm tin vào nội dung số. Để giúp bạn luôn cảnh giác và tự bảo vệ mình, chúng tôi giới thiệu mô hình SAFE – một mô hình đơn giản và hiệu quả.
+                            SAFE là từ viết tắt của bốn bước hành động then chốt, được thiết kế để kích hoạt tư duy phản biện (Reflective Thinking) của bạn trước mọi thông tin đáng ngờ trên mạng xã hội, email, hoặc các cuộc gọi điện tử:
+                            Mô hình SAFE được thiết kế để để tự phòng vệ trước các mối đe dọa Deepfake. Mục tiêu của mô hình này là giúp bạn hình thành khả năng tư duy phản biện (suy xét kỹ lưỡng) khi tiếp xúc với thông tin trên mạng.
+                        </p>
+                       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="border-l-4 border-accent-green pl-4 p-6 rounded-lg shadow-xl bg-green-50/70">
+                            <h3 class="text-2xl font-bold text-accent-green mb-2 flex items-center">
+                                <span class="text-4xl mr-3">S</span> Source (Nguồn Gốc)
+                            </h3>
+                            <p class="text-base text-gray-700 mb-3 text-justify">Kiểm tra nguồn tin. Nội dung này có phải từ một kênh đã được xác minh (tick xanh) hoặc một tố chức uy tín không? Hãy tránh xa các nguồn ẩn danh hoặc không rõ ràng.
+                            </p>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                <li class="text-justify">Kiểm tra uy tín: Xác minh xem kênh phát hành có phải là kênh chính thức (có tick xanh) của cá nhân/ tổ chức đó không.</li>
+                                <li class="text-justify">Phân tích động cơ: Nguồn tin này có động cơ chính trị, tài chính hay cá nhân nào khi đăng tải nội dung này không?</li>
+                                <li class="text-justify">Nguồn gốc đầu tiên: Cố gắng truy ngược lại video/hình ảnh gốc (ví dụ: tìm bài đăng đầu tiên trên nền tảng chính thức).</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-primary-dark pl-4 p-6 rounded-lg shadow-xl bg-blue-50/70">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-2 flex items-center">
+                                <span class="text-4xl mr-3">A</span> Appraise (Quan sát)
+                            </h3>
+                            <p class="text-base text-gray-700 mb-3 text-justify">Chú ý kỹ video, hình ảnh, hoặc âm thanh, để ý các chi tiết bất thường như cử chỉ, ánh mắt, hành động, hoặc ánh sáng không tự nhiên vì Deepfake thường có lỗi nhỏ ở các vùng này.</p>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                <li class="text-justify">Khuôn mặt & Mắt: Người trong video có nháy mắt tự nhiên không? Ánh sáng trên khuôn mặt có khớp với môi trường xung quanh không?</li>
+                                <li class="text-justify">Giọng nói & Khớp miệng: Âm thanh có bị méo, cắt ngang, hoặc có độ trễ bất thường không? Khớp miệng (lip-sync) có đồng bộ hoàn hảo với lời nói không?</li>
+                                <li class="text-justify">Bóng đổ & Ánh sáng: Trong Deepfake, bóng đổ và ánh sáng thường không nhất quán do mô hình AI bị giới hạn về chiều không gian 3D.</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-accent-green pl-4 p-6 rounded-lg shadow-xl bg-green-50/70">
+                            <h3 class="text-2xl font-bold text-accent-green mb-2 flex items-center">
+                                <span class="text-4xl mr-3">F</span> Fact-Check (Kiểm chứng)
+                            </h3>
+                            <p class="text-base text-gray-700 mb-3 text-justify">Dùng các công cụ kiếm tra (như Google Reverse Image, InVID) hoặc tìm kiếm chéo trên ít nhất hai nguồn tin chính thống khác để xác minh tính xác thực của thông tin.</p>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                <li class="text-justify">Đối chiếu tin tức: Tìm kiếm trên ít nhất hai hãng tin lớn, uy tín khác nhau để xem họ có đưa tin về sự kiện này không.</li>
+                                <li class="text-justify">Công cụ chuyên dụng: Sử dụng các công cụ kiểm tra hình ảnh ngược (ví dụ: Google Reverse Image Search) hoặc các phần mềm phân tích metadata video.</li>
+                                <li class="text-justify">Tìm kiếm bối cảnh: Sự kiện này có hợp lý với bối cảnh chính trị, xã hội hoặc thời gian hiện tại không?</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-primary-dark pl-4 p-6 rounded-lg shadow-xl bg-blue-50/70">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-2 flex items-center">
+                                <span class="text-4xl mr-3">E</span> Evaluate (Đánh giá & Hành động)
+                            </h3>
+                            <p class="text-base text-gray-700 mb-3 text-justify">Nếu còn nghi ngờ về tính xác thực của nội dung, tuyệt đối không chia sẻ ngay! Hãy hỏi ý kiến người có liên quan hoặc chuyên gia trước khi đưa ra bất kỳ quyết định nào.</p>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                <li class="text-justify">Tự Bảo Vệ: Không nhấp vào bất kỳ liên kết nào, không cung cấp thông tin cá nhân hoặc chuyển tiền nếu nội dung liên quan đến yêu cầu khẩn cấp.</li>
+                                <li class="text-justify">Không lan truyền: Nếu nghi ngờ, tuyệt đối không chia sẻ nội dung đó. Lan truyền tin giả, dù vô tình, cũng gây hại.</li>
+                                <li class="text-justify">Báo cáo: Báo cáo nội dung Deepfake đáng ngờ lên nền tảng mạng xã hội hoặc các cơ quan chức năng có liên quan (ví dụ: Trung tâm Ứng cứu khẩn cấp không gian mạng Việt Nam).</li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="content-page bg-white hidden" id="page-baocao">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-10 text-primary-dark">
+                        4. Báo cáo rủi ro và hướng dẫn sử dụng công cụ nhận diện
+                    </h2>
+                    <div class="bg-background-light p-8 md:p-12 rounded-2xl shadow-2xl space-y-10">
+                        <div>
+                            <h3 class="text-3xl font-bold text-accent-green mb-4 border-b border-accent-green pb-2">4.1. Quy trình báo cáo Deepfake</h3>
+                            <p class="text-xl font-medium text-gray-700 mb-6 leading-relaxed text-justify">
+                                Hành động báo cáo kịp thời là tuyến phòng thủ quan trọng nhất để ngăn chặn sự lan truyền và gây hại của Deepfake. Hãy hành động theo 3 bước sau khi bạn đã xác minh một nội dung là giả mạo.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="p-4 border border-gray-300 rounded-lg bg-white shadow-sm">
+                                    <h4 class="text-xl font-semibold text-primary-dark mb-2">Bước 1: Thu thập bằng chứng và bảo vệ bản thân</h4>
+                                    <p class="text-gray-700 text-base text-justify">
+                                        Chụp màn hình hoặc lưu lại đường dẫn (URL) của nội dung Deepfake, tuyệt đối không nhấp vào bất kỳ liên kết nào đi kèm hoặc tương tác với người gửi/ kênh phát tán để tránh rủi ro bảo mật.
+                                    </p>
+                                </div>
+                                <div class="p-4 border border-gray-300 rounded-lg bg-white shadow-sm">
+                                    <h4 class="text-xl font-semibold text-primary-dark mb-2">Bước 2: Báo cáo lên nền tảng (Platform Reporting)</h4>
+                                    <p class="text-gray-700 text-base text-justify">
+                                        Sử dụng chức năng "Báo cáo" (Report) có sẵn của nền tảng (Facebook, YouTube, TikTok, v.v.) và chọn lý do liên quan đến "Thông tin sai lệch" hoặc "Giả mạo" - đây là cách nhanh nhất để gỡ bỏ nội dung độc hại.
+                                    </p>
+                                </div>
+                                <div class="p-4 border border-gray-300 rounded-lg bg-white shadow-sm">
+                                    <h4 class="text-xl font-semibold text-primary-dark mb-2">Bước 3: Báo cáo cơ quan chức năng</h4>
+                                    <p class="text-gray-700 text-base text-justify">
+                                        Nếu Deepfake liên quan đến lừa đảo tài chính, tống tiền hoặc có tính chất nghiêm trọng, hãy báo cáo ngay cho cơ quan công an địa phương hoặc các đơn vị chuyên trách về an ninh mạng của quốc gia bạn (ví dụ: Trung tâm Ứng cứu Khẩn cấp Máy tính Quốc gia).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <h3 class="text-3xl font-bold text-accent-green mb-4 border-b border-accent-green pb-2">4.2. Hướng dẫn sử dụng công cụ phát hiện Deepfake (DeepDetect v3.0)</h3>
+                            <p class="text-xl font-medium text-gray-700 mb-6 leading-relaxed text-justify">
+                                Các công cụ phát hiện Deepfake sử dụng Trí tuệ nhân tạo (AI) để tìm ra các dấu hiệu giả mạo tinh vi (Artifacts) mà mắt thường không thấy được, bao gồm các lỗi logic trong thuật toán AI tạo sinh. Dưới đây là mô phỏng chi tiết cách sử dụng một công cụ điển hình, giả định là DeepDetect v3.0.
+                            </p>
+                            <ol class="list-decimal pl-6 space-y-6 text-gray-700 text-base">
+                                <li class="text-xl font-bold text-primary-dark">
+                                    Chuẩn bị tệp tin và kiểm tra độ tương thích
+                                    <div class="font-normal mt-1 space-y-2 text-base text-gray-700">
+                                        <p class="text-justify"><span class="font-semibold text-gray-900">Định dạng hỗ trợ:</span> Công cụ DeepDetect V3.0 hỗ trợ rộng rãi các định dạng video phổ biến như: .mp4, .mov, .avi và các định dạng hình ảnh .jpg, .png.</p>
+                                        <p class="text-justify"><span class="font-semibold text-gray-900">Chất lượng tệp tối ưu:</span> Đảm bảo tệp bạn tải lên có độ phân giải cao nhất có thể (ví dụ: full hd 1080p trở lên cho video). chất lượng kém có thể gây ra lỗi sai lệch (False Positives) do AI nhầm lẫn nhiễu kỹ thuật số (Compression Artifacts) với dấu hiệu Deepfake.</p>
+                                        <p class="text-justify"><span class="font-semibold text-gray-900">Thu thập Metadata:</span> Công cụ sẽ tự động đọc các dữ liệu ẩn (Metadata) của tệp (ngày tạo, thiết bị quay), đảm bảo tệp tin được bảo toàn Metadata gốc nếu có thể vì đây là một chỉ số xác thực quan trọng ban đầu.</p>
+                                    </div>
+                                </li>
+                                <li class="text-xl font-bold text-primary-dark">
+                                    Tải lên và khởi chạy phân tích chuyên sâu
+                                    <div class="font-normal mt-1 space-y-2 text-base text-gray-700">
+                                        <p class="text-justify"><span class="font-semibold text-gray-900">Tải lên nền tảng:</span> Truy cập vào giao diện web hoặc ứng dụng của DeepDetect, chọn mục "Secure File Upload"(tải lên tệp an toàn) rồi chọn tệp tin đã chuẩn bị.</p>                               
+                                        <p class="text-base text-justify">
+                                            <span class="font-semibold text-gray-900">Chọn Modul phân tích:</span> DeepDetect có thể cung cấp các mô-đun chuyên biệt, bao gồm:
+                                            <br>• Video Integrity Check: Phân tích hình ảnh, chuyển động và đồng bộ âm thanh (thường được sử dụng nhất).
+                                            <br>• Audio Spoofing Detection: Chỉ phân tích giọng nói và tần số âm thanh.
+                                            <br><span class="font-semibold text-gray-900">Khởi chạy:</span> Nhấn nút "Execute Deep Scan" (thực thi quét chuyên sâu) quá trình này sẽ kích hoạt các mô hình học sâu (Deep Learning Models) để phân tích từng khung hình (Frame-by-Frame Analysis) và sóng âm. Thời gian xử lý có thể kéo dài từ 3 đến 10 phút tùy thuộc vào độ dài và kích thước tệp.
+                                    </div>
+                                </li>
+                                <li class="text-xl font-bold text-primary-dark">
+                                    Đánh giá kết quả và phân tích dấu hiệu giả mạo
+                                    <div class="font-normal mt-1 space-y-2 text-base text-gray-700">
+                                        <p><span class="font-semibold text-gray-900">Sau khi phân tích hoàn tất, công cụ sẽ trả về một báo cáo kỹ thuật chi tiết.</span></p>
+                                        <h4 class="font-semibold text-gray-900 mt-3">a. Chỉ số tin cậy tổng thể (Overall confidence score)</h4>
+                                        <div class="text-base space-y-1">
+                                            <p class="text-justify">Báo cáo sẽ hiển thị một chỉ số tin cậy rõ ràng:</p>
+                                            <p class="text-justify">Ví dụ: 85% Deepfake Probability (khả năng giả mạo 85%) hoặc 99% Real Probability (khả năng thật 99%).</p>
+                                            <p class="text-justify">Ngưỡng khuyến nghị: Nếu chỉ số Deepfake vượt quá 70%, xem xét đây là một cảnh báo cấp độ cao và cần hành động khẩn cấp.</p>
+                                        </div>
+                                        <h4 class="font-semibold text-gray-900 mt-3">b. Phân tích dấu hiệu giả mạo (Artifact analysis breakdown)</h4>
+                                        <div class="text-base space-y-1">
+                                            <p class="text-justify">Đây là phần quan trọng nhất, nơi công cụ chỉ ra các lỗi cụ thể:</p>
+                                            <ul class="list-disc pl-5">
+                                                <li class="text-justify"><span class="font-semibold text-gray-900">Inconsistencies (sự không nhất quán):</span> Eye Blink Irregularity: tần suất hoặc hình dạng nháy mắt không đều, là một dấu hiệu phổ biến của Deepfake; Illumination Artifacts: ánh sáng trên khuôn mặt không khớp với môi trường xung quanh hoặc có hiện tượng đổ bóng/màu da không nhất quán.</li>
+                                                <li class="text-justify"><span class="font-semibold text-gray-900">Warping and Boundary Issues (lỗi biên và biến dạng):</span> Phát hiện sự dịch chuyển pixel bất thường (Pixel Shifting) hoặc đường viền khuôn mặt bị nhòe (Boundary Blur), nơi AI đã ghép mặt.</li>
+                                                <li class="text-justify"><span class="font-semibold text-gray-900">Audio/Video Synchronization:</span> Đối với video, công cụ sẽ đo lường độ trễ (Latency) giữa cử động môi và âm thanh thực tế.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="text-xl font-bold text-primary-dark">
+                                    Hành động dựa trên đánh giá và báo cáo
+                                    <div class="font-normal mt-1 space-y-2 text-base text-gray-700">
+                                        <p class="text-justify"><span class="font-semibold text-gray-900">Lưu báo cáo kỹ thuật:</span> Nếu chỉ số Deepfake cao, nhấn "Export Full Technical Report" (xuất báo cáo kỹ thuật đầy đủ) để lưu bằng chứng, phục vụ cho các bước pháp lý sau này.</p>
+                                        <p class="text-justify"><span class="font-semibold text-gray-900">Thực hiện quy trình ứng phó SAFE:</span> Quay trở lại với mô hình hành động đã được huấn luyện, cụ thể là mô hình SAFE (hoặc quy trình báo cáo của riêng bạn):</p>
+                                        <ul class="list-disc pl-5 text-base">
+                                            <li class="text-justify"><span class="font-semibold text-gray-900">Stop (dừng lại):</span> Không thực hiện bất kỳ hành động nào theo yêu cầu của Deepfake (ví dụ: chuyển tiền, cung cấp thông tin).</li>
+                                            <li class="text-justify"><span class="font-semibold text-gray-900">Analyze (phân tích):</span> Hoàn tất bước phân tích với công cụ DeepDetect.</li>
+                                            <li class="text-justify"><span class="font-semibold text-gray-900">Forward (không lan truyền):</span> Tuyệt đối không chia sẻ hoặc lan truyền nội dung Deepfake này.</li>
+                                            <li class="text-justify"><span class="font-semibold text-gray-900">Escalate (báo cáo):</span> Báo cáo khẩn cấp cho bộ phận an ninh mạng, pháp chế hoặc cơ quan chức năng có thẩm quyền.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="content-page bg-background-light hidden" id="page-tacgia">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-10 text-primary-dark">
+                        5. Về nhóm tác giả
+                    </h2>
+                    <div class="text-lg font-light mb-8 max-w-3xl mx-auto text-gray-700 text-justify leading-relaxed space-y-4">
+                            <p>Mạng xanh - Niềm tin thật xin chào,</p>
+                            <p>Lời đầu tiên, chúng tôi xin phép được tự giới thiệu chúng tôi là <span class="font-semibold text-gray-900">Nguyễn Phạm Anh Thư</span> và <span class="font-semibold text-gray-900">Nguyễn Thảo Vy</span> - hiện là học sinh trường THPT Phước Thiền (Xã Nhơn Trạch, Tỉnh Đồng Nai).</p>
+                            <p>Như các bạn đã biết, sự phát triển nhanh chóng của công nghệ Trí tuệ Nhân tạo (AI) đã kéo theo mối đe dọa từ Deepfake – nội dung giả mạo siêu thực đang làm xói mòn niềm tin vào thông tin và đe dọa an ninh cá nhân, tổ chức. Điều này không chỉ gây ra thiệt hại tài chính mà còn ảnh hưởng nghiêm trọng đến uy tín và trật tự xã hội.</p>
+                            <p>Với mục tiêu nâng cao khả năng phòng vệ kỹ thuật số và bảo vệ người dùng trước các cuộc tấn công lừa đảo bằng công nghệ giả mạo, chúng đã và đang xây dựng dự án <span class="italic font-semibold text-accent-green">“Nghiên cứu thực trạng, đề xuất giải pháp nâng cao an toàn mạng và ứng phó rủi ro Deepfake dành cho học sinh THPT”</span>.</p>
+                            <p>Dự án <span class="font-bold text-primary-dark">Mạng xanh - Niềm tin thật</span> xin chân thành cảm ơn bạn đã ghé thăm trang web và cùng tôi tìm hiểu về chủ đề quan trọng này. Chúc bạn một ngày tốt lành!</p>
+                            <p>Trân trọng, Nguyễn Phạm Anh Thư</span> và <span class="font-semibold text-gray-900">Nguyễn Thảo Vy</span>- tác giả dự án.</span></p>
+                        </p>
+                        <div class="mt-12 max-w-xl mx-auto text-left space-y-4 text-gray-700">
+                            <h3 class="text-2xl font-semibold border-b border-gray-300 pb-2 mb-4 text-primary-dark">Thông tin dự án</h3>
+                            <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                                <span class="font-medium">Tên tác giả:</span>
+                                <span class="text-right">Nguyễn Phạm Anh Thư và Nguyễn Thảo Vy</span>
+                            </div>
+                            <span class="font-medium">Tên dự án nghiên cứu:</span>
+                                <span class="text-right">Nghiên cứu thực trạng, đề xuất giải pháp nâng cao an toàn mạng và ứng phó rủi ro Deepfake dành cho học sinh THPT</span>
+                            <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                                <span class="font-medium">Lĩnh vực:</span>
+                                <span class="text-right">Khoa học xã hội và hành vi</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium">Email Hỗ trợ:</span>
+                                <span class="text-right font-mono text-sm">mangxanh25@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <footer class="bg-primary-dark text-white pt-10 pb-6 border-t border-blue-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Cột 1: Logo & Slogan -->
+                <div>
+                    <h4 class="text-2xl font-bold mb-4 text-accent-green">Mạng xanh</h4>
+                    <p class="text-sm text-gray-400">Kiến tạo niềm tin trong kỷ nguyên số.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Nội dung Chính</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="javascript:void(0)" data-target="page-gioithieu" class="nav-link-footer hover:text-accent-green transition duration-200">Giới thiệu Deepfake</a></li>
+                        <li><a href="javascript:void(0)" data-target="page-loivarisiko" class="nav-link-footer hover:text-accent-green transition duration-200">Lợi ích & Rủi ro</a></li>
+                        <li><a href="javascript:void(0)" data-target="page-safe" class="nav-link-footer hover:text-accent-green transition duration-200">Mô hình SAFE</a></li>
+                        <li><a href="javascript:void(0)" data-target="page-baocao" class="nav-link-footer hover:text-accent-green transition duration-200">Báo cáo Deepfake & Công cụ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Thông tin</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="javascript:void(0)" data-target="page-tacgia" class="nav-link-footer hover:text-accent-green transition duration-200">Về nhóm tác giả</a></li>
+                        <li><a href="#" class="hover:text-accent-green transition duration-200">FAQ</a></li>
+                        <li><a href="#" class="hover:text-accent-green transition duration-200">Chính sách Bảo mật</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Liên hệ</h4>
+                    <p class="text-sm text-gray-400">Email: mangxanh25@gmail.com</p>
+                    <div class="flex space-x-3 mt-2 text-gray-400">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm text-gray-400 border-t border-blue-700/50 pt-4">
+                &copy; 2025 Mạng xanh - Niềm tin thật.
+            </div>
+        </div>
+    </footer>
+    <script>
+        function showView(targetId) {
+            const pages = document.querySelectorAll('.content-page');
+            const menuLinks = document.querySelectorAll('.nav-link');
+            pages.forEach(page => {
+                page.classList.add('hidden');
+            });
+            const targetPage = document.getElementById(targetId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                window.scrollTo({ top: document.querySelector('header').offsetHeight, behavior: 'smooth' });
+            }
+            menuLinks.forEach(link => {
+                link.classList.remove('active-menu-item');
+                link.classList.remove('bg-accent-green', 'text-primary-dark');
+                link.classList.add('text-white');
+                if (link.dataset.target === targetId) {
+                    if (targetId !== 'page-home') {
+                        if (link.classList.contains('mobile-nav-link') && link.dataset.target === 'page-tacgia') {
+                            link.classList.remove('text-white', 'hover:text-accent-green');
+                            link.classList.add('bg-accent-green', 'text-primary-dark');
+                        } else if (!link.classList.contains('mobile-nav-link') && link.dataset.target !== 'page-tacgia') {
+                            link.classList.add('active-menu-item');
+                        }
+                    }
+                }
+            });
+        }
+        document.querySelectorAll('.nav-link, .nav-link-footer').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.dataset.target;
+                if (target) {
+                    showView(target);
+                }
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu.classList.contains('menu-open')) {
+                    mobileMenu.classList.remove('menu-open');
+                }
+            });
+        });
+        document.getElementById('menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('menu-open');
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+    showView('page-home');
+        });
+    </script>
+</body>
+</html>
